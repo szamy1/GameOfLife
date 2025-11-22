@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  background-color: var(--bg);
+  color: var(--text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg: #060712;
+  --bg-strong: #0e1022;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.12);
+  --text: #dbeafe;
+  --text-muted: #9fb6d9;
+  --accent: #22d3ee;
+  --accent-strong: #a78bfa;
+  --grid: rgba(255, 255, 255, 0.08);
+  --cell-live: #7c3aed;
+  --cell-dead: rgba(255, 255, 255, 0.06);
+  --glow: #22d3ee;
+}
+
+[data-theme='light'] {
+  --bg: #f6f8fb;
+  --bg-strong: #eef1f8;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: rgba(15, 23, 42, 0.06);
+  --text: #0f172a;
+  --text-muted: #4b5563;
+  --accent: #2563eb;
+  --accent-strong: #0ea5e9;
+  --grid: rgba(15, 23, 42, 0.1);
+  --cell-live: #0ea5e9;
+  --cell-dead: rgba(15, 23, 42, 0.06);
+  --glow: #38bdf8;
+}
+
+[data-theme='dark'] {
+  --bg: #05060c;
+  --bg-strong: #0b1224;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.12);
+  --text: #e6edf7;
+  --text-muted: #8ba0c3;
+  --accent: #60a5fa;
+  --accent-strong: #7dd3fc;
+  --grid: rgba(255, 255, 255, 0.08);
+  --cell-live: #8b5cf6;
+  --cell-dead: rgba(255, 255, 255, 0.05);
+  --glow: #60a5fa;
+}
+
+[data-theme='neon'] {
+  --bg: #060712;
+  --bg-strong: #0e1022;
+  --panel: rgba(15, 23, 42, 0.65);
+  --panel-strong: rgba(99, 102, 241, 0.18);
+  --text: #e6ecff;
+  --text-muted: #96a5c7;
+  --accent: #22d3ee;
+  --accent-strong: #a855f7;
+  --grid: rgba(255, 255, 255, 0.1);
+  --cell-live: #7c3aed;
+  --cell-dead: rgba(255, 255, 255, 0.08);
+  --glow: #22d3ee;
+}
+
+[data-theme='dawn'] {
+  --bg: #0f0a0a;
+  --bg-strong: #1b1012;
+  --panel: rgba(255, 255, 255, 0.05);
+  --panel-strong: rgba(249, 115, 22, 0.14);
+  --text: #fde7ef;
+  --text-muted: #f4b5c3;
+  --accent: #fb923c;
+  --accent-strong: #f43f5e;
+  --grid: rgba(255, 255, 255, 0.08);
+  --cell-live: #fb7185;
+  --cell-dead: rgba(255, 255, 255, 0.09);
+  --glow: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 120% at 20% 20%, color-mix(in srgb, var(--accent-strong) 12%, transparent), transparent),
+    radial-gradient(90% 90% at 80% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent),
+    linear-gradient(140deg, color-mix(in srgb, var(--bg-strong) 70%, transparent), var(--bg));
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--panel) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  box-shadow:
+    0 20px 70px color-mix(in srgb, var(--accent-strong) 14%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--panel-strong) 40%, transparent);
+}
+
+.subtle-gradient {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--panel) 40%, transparent), color-mix(in srgb, var(--panel-strong) 50%, transparent));
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+}
